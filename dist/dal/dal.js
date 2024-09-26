@@ -15,6 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.gettAllBeepers = gettAllBeepers;
 exports.getBeeperById = getBeeperById;
 exports.addBeeper = addBeeper;
+exports.updateStatusOfbeeper = updateStatusOfbeeper;
+exports.deleteBeeperFromDb = deleteBeeperFromDb;
+exports.getBeepersByStatus = getBeepersByStatus;
+exports.timer = timer;
 const jsonfile_1 = __importDefault(require("jsonfile"));
 const dbFile = './db.json';
 function gettAllBeepers() {
@@ -52,4 +56,55 @@ function addBeeper(newBeeper) {
             throw error;
         }
     });
+}
+function updateStatusOfbeeper(id, status) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const beepers = yield gettAllBeepers();
+            const beeper = beepers.find((beeper) => beeper.id === id);
+            beeper.status = status;
+            yield jsonfile_1.default.writeFile(dbFile, beepers);
+            return beeper;
+        }
+        catch (error) {
+            throw error;
+        }
+    });
+}
+function deleteBeeperFromDb(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const beepers = yield gettAllBeepers();
+            const index = beepers.findIndex((beeper) => beeper.id === id);
+            beepers.splice(index, 1);
+            yield jsonfile_1.default.writeFile(dbFile, beepers);
+        }
+        catch (error) {
+            throw error;
+        }
+    });
+}
+function getBeepersByStatus(status) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const beepers = yield gettAllBeepers();
+            const filteredBeepers = beepers.filter((beeper) => beeper.status === status);
+            return filteredBeepers;
+        }
+        catch (error) {
+            throw error;
+        }
+    });
+}
+function timer(id) {
+    let countdown = 10;
+    const timer = setInterval(() => {
+        if (countdown >= 0) {
+            countdown--;
+        }
+        else {
+            clearInterval(timer);
+            updateStatusOfbeeper(id, 'detonated');
+        }
+    }, 1000);
 }

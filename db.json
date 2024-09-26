@@ -1,1 +1,98 @@
-[{"id":11,"name":"jhon","email":"neti@example.com","password":"$2b$10$ZNyuId1CJx0txa9OPTCiCuFxYfSXM8HQyzH.hS2Hki7.3qqC69ctq","books":[{"title":"herry potter"}]},{"name":"massa","email":"neti@example.com","password":"$2b$10$zL43v.VrxJgram17Iof0auCzXc1S2grH6QnbBNzCHpyUu3XtHZgtS"},{"id":"039a234d-9cc9-4f20-9995-31bc88519dd7","name":"jhon","email":"neti@example.com","password":"$2b$10$x43adFJiLQis.z7gVYErU./BWIy.f9cudl0E8KaB2FwUXkyYfJgYW","books":[{"bookId":"e4de9f9b-1c9a-4b40-bbf9-bc73c4fcf149","title":"1984"},{"bookId":"c1e55782-b447-44db-98bf-dc05b2557ff8","title":"reacher"},{"bookId":"b587b85e-aad9-4aed-8b25-1331e71569f1","title":"reacher"}]},{"id":12,"name":"jhon","email":"neti@example.com","password":"$2b$10$ZNyuId1CJx0txa9OPTCiCuFxYfSXM8HQyzH.hS2Hki7.3qqC69ctq","books":[{"title":"herry potter"}]},{"name":"massa","email":"neti@example.com","password":"$2b$10$zL43v.VrxJgram17Iof0auCzXc1S2grH6QnbBNzCHpyUu3XtHZgtS"},{"id":"039a234d-9cc9-4f20-9995-31bc88519dd7","name":"jhon","email":"neti@example.com","password":"$2b$10$x43adFJiLQis.z7gVYErU./BWIy.f9cudl0E8KaB2FwUXkyYfJgYW","books":[{"bookId":"e4de9f9b-1c9a-4b40-bbf9-bc73c4fcf149","title":"1984"},{"bookId":"c1e55782-b447-44db-98bf-dc05b2557ff8","title":"reacher"},{"bookId":"b587b85e-aad9-4aed-8b25-1331e71569f1","title":"reacher"}]},{"id":null,"name":"primo","created_at":"2024-09-26T07:45:57.733Z","detonated_at":"2024-09-DDTHH:mm","longitude":"35.78674","latitude":"34.59708"},{"id":1727337937784,"name":"primo","created_at":"2024-09-26T08:05:37.784Z","detonated_at":"2024-09-DDTHH:mm","longitude":"35.78674","latitude":"34.59708"},{"id":1727337941433,"name":"primo","created_at":"2024-09-26T08:05:41.433Z","detonated_at":"2024-09-DDTHH:mm","longitude":"35.78674","latitude":"34.59708"},{"id":1727337942718,"name":"primo","created_at":"2024-09-26T08:05:42.718Z","detonated_at":"2024-09-DDTHH:mm","longitude":"35.78674","latitude":"34.59708"},{"id":1727337943549,"name":"primo","created_at":"2024-09-26T08:05:43.549Z","detonated_at":"2024-09-DDTHH:mm","longitude":"35.78674","latitude":"34.59708"},{"id":1727337944051,"name":"primo","created_at":"2024-09-26T08:05:44.051Z","detonated_at":"2024-09-DDTHH:mm","longitude":"35.78674","latitude":"34.59708"}]
+[
+    {
+        "id": 11,
+        "name": "jhon",
+        "email": "neti@example.com",
+        "password": "$2b$10$ZNyuId1CJx0txa9OPTCiCuFxYfSXM8HQyzH.hS2Hki7.3qqC69ctq",
+        "books": [
+            {
+                "title": "herry potter"
+            }
+        ]
+    },
+    {
+        "name": "massa",
+        "email": "neti@example.com",
+        "password": "$2b$10$zL43v.VrxJgram17Iof0auCzXc1S2grH6QnbBNzCHpyUu3XtHZgtS"
+    },
+    {
+        "id": "039a234d-9cc9-4f20-9995-31bc88519dd7",
+        "name": "jhon",
+        "email": "neti@example.com",
+        "password": "$2b$10$x43adFJiLQis.z7gVYErU./BWIy.f9cudl0E8KaB2FwUXkyYfJgYW",
+        "books": [
+            {
+                "bookId": "e4de9f9b-1c9a-4b40-bbf9-bc73c4fcf149",
+                "title": "1984"
+            },
+            {
+                "bookId": "c1e55782-b447-44db-98bf-dc05b2557ff8",
+                "title": "reacher"
+            },
+            {
+                "bookId": "b587b85e-aad9-4aed-8b25-1331e71569f1",
+                "title": "reacher"
+            }
+        ]
+    },
+    {
+        "name": "massa",
+        "email": "neti@example.com",
+        "password": "$2b$10$zL43v.VrxJgram17Iof0auCzXc1S2grH6QnbBNzCHpyUu3XtHZgtS"
+    },
+    {
+        "id": "039a234d-9cc9-4f20-9995-31bc88519dd7",
+        "name": "jhon",
+        "email": "neti@example.com",
+        "password": "$2b$10$x43adFJiLQis.z7gVYErU./BWIy.f9cudl0E8KaB2FwUXkyYfJgYW",
+        "books": [
+            {
+                "bookId": "e4de9f9b-1c9a-4b40-bbf9-bc73c4fcf149",
+                "title": "1984"
+            },
+            {
+                "bookId": "c1e55782-b447-44db-98bf-dc05b2557ff8",
+                "title": "reacher"
+            },
+            {
+                "bookId": "b587b85e-aad9-4aed-8b25-1331e71569f1",
+                "title": "reacher"
+            }
+        ]
+    },
+    {
+        "id": 1727337937784,
+        "name": "primo",
+        "created_at": "2024-09-26T08:05:37.784Z",
+        "detonated_at": "2024-09-DDTHH:mm",
+        "longitude": "35.78674",
+        "latitude": "34.59708"
+    },
+    {
+        "id": 1727340699604,
+        "name": "primo",
+        "status": "manufactured",
+        "created_at": "2024-09-26T08:51:39.604Z",
+        "detonated_at": "2024-09-DDTHH:mm",
+        "longitude": "35.78674",
+        "latitude": "34.59708"
+    },
+    {
+        "id": 1727340702449,
+        "name": "primo",
+        "status": "manufactured",
+        "created_at": "2024-09-26T08:51:42.449Z",
+        "detonated_at": "2024-09-DDTHH:mm",
+        "longitude": "35.78674",
+        "latitude": "34.59708"
+    },
+    {
+        "id": 1727340712461,
+        "name": "secondo",
+        "status": "detonated",
+        "created_at": "2024-09-26T08:51:52.461Z",
+        "detonated_at": "2024-09-DDTHH:mm",
+        "longitude": "35.78674",
+        "latitude": "34.59708"
+    }
+]

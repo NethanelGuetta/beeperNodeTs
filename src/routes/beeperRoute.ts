@@ -9,4 +9,10 @@ beeperRouter.get('/api/beepers/:id', controllerFunctions.getBeeperById);
 
 beeperRouter.post('/api/beepers', controllerFunctions.addBeeperToDb);
 
-export default beeperRouter
+beeperRouter.put('/api/beepers/:id/status', controllerFunctions.updateStatus);
+
+beeperRouter.delete('/api/beepers/:id', controllerFunctions.deleteBeeper);
+
+beeperRouter.get('/api/beepers/status/:status', controllerFunctions.getBeepersByStatus);
+
+export default beeperRouter;

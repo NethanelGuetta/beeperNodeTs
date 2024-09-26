@@ -32,7 +32,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addBeeperToDb = exports.getBeeperById = exports.getBeepers = void 0;
+exports.getBeepersByStatus = exports.deleteBeeper = exports.updateStatus = exports.addBeeperToDb = exports.getBeeperById = exports.getBeepers = void 0;
 const dbFunctions = __importStar(require("../dal/dal"));
 const getBeepers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -59,7 +59,7 @@ const addBeeperToDb = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     const newBeeper = {
         id: Date.now(),
         name: req.body.name,
-        status: req.body.status,
+        status: "manufactured",
         created_at: new Date(),
         detonated_at: req.body.detonated_at,
         longitude: req.body.longitude,
@@ -74,3 +74,40 @@ const addBeeperToDb = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.addBeeperToDb = addBeeperToDb;
+const updateStatus = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const beeperId = +req.params.id;
+    const status = req.body.status;
+    try {
+        const beeper = yield dbFunctions.updateStatusOfbeeper(beeperId, status);
+        res.status(200).json(beeper);
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Error updating status of beeper' });
+    }
+    if (status === "deployed") {
+        dbFunctions.timer(beeperId);
+    }
+});
+exports.updateStatus = updateStatus;
+const deleteBeeper = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const beeperId = +req.params.id;
+    try {
+        const beeper = yield dbFunctions.deleteBeeperFromDb(beeperId);
+        res.status(200).json(beeper);
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Error deleting beeper' });
+    }
+});
+exports.deleteBeeper = deleteBeeper;
+const getBeepersByStatus = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const status = req.params.status;
+    try {
+        const beepers = yield dbFunctions.getBeepersByStatus(status);
+        res.status(200).json(beepers);
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Error getting beepers' });
+    }
+});
+exports.getBeepersByStatus = getBeepersByStatus;
