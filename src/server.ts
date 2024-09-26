@@ -1,9 +1,12 @@
 import express, { Application } from "express";
+import dotenv from "dotenv";
 
-const app:Application = express();
+dotenv.config();
+
+const app: Application = express();
 app.use(express.json());
 
-const PORT = 3000;
+const PORT: number | string = process.env.PORT || "3001";
 
 //import routes
 import beeperRouter from "./routes/beeperRoute";
@@ -11,5 +14,5 @@ app.use(beeperRouter);
 
 //listen and start the server
 app.listen(PORT, () => {
-    console.log(`Listening to ${PORT}`);  
-  })  
+  console.log(`Listening to port: ${PORT}`);
+})  

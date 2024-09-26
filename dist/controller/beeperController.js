@@ -34,6 +34,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getBeepersByStatus = exports.deleteBeeper = exports.updateStatus = exports.addBeeperToDb = exports.getBeeperById = exports.getBeepers = void 0;
 const dbFunctions = __importStar(require("../dal/dal"));
+const utils = __importStar(require("../utils/utils"));
 const getBeepers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const beepers = yield dbFunctions.gettAllBeepers();
@@ -61,9 +62,8 @@ const addBeeperToDb = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         name: req.body.name,
         status: "manufactured",
         created_at: new Date(),
-        detonated_at: req.body.detonated_at,
-        longitude: req.body.longitude,
-        latitude: req.body.latitude
+        // latitude: req.body.latitude,
+        // longitude: req.body.longitude
     };
     try {
         dbFunctions.addBeeper(newBeeper);
@@ -76,16 +76,28 @@ const addBeeperToDb = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 exports.addBeeperToDb = addBeeperToDb;
 const updateStatus = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const beeperId = +req.params.id;
-    const status = req.body.status;
+    const latitude = req.body.latitude;
+    const longitude = req.body.longitude;
+    if (!utils.checkPosition(longitude, latitude)) {
+        res.status(500).json({ message: 'Latitude and longitude out of range' });
+    }
     try {
-        const beeper = yield dbFunctions.updateStatusOfbeeper(beeperId, status);
-        res.status(200).json(beeper);
+        const beeper = yield dbFunctions.getBeeperById(beeperId);
+        const status = utils.changeStatus(beeper.status);
+        const updatedBeeper = yield dbFunctions.updateStatusOfbeeper(beeperId, status, latitude, longitude);
+        res.status(200).json(updatedBeeper);
+        if (status === "deployed") {
+            if (!req.body.latitude || !req.body.longitude) {
+                //problem
+                console.log('You have to send latitude and longitude');
+            }
+            setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
+                yield dbFunctions.updateStatusOfbeeper(beeperId, "detonated", latitude, longitude);
+            }), 10000);
+        }
     }
     catch (error) {
         res.status(500).json({ message: 'Error updating status of beeper' });
-    }
-    if (status === "deployed") {
-        dbFunctions.timer(beeperId);
     }
 });
 exports.updateStatus = updateStatus;

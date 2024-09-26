@@ -3,7 +3,7 @@ import { Beeper } from "../models/beeperInterface";
 
 const dbFile = './db.json';
 
-export async function gettAllBeepers() {
+export async function gettAllBeepers(): Promise<Beeper[]> {
     try {
         const beepers = await jsonFile.readFile(dbFile);
         return beepers;
@@ -12,17 +12,20 @@ export async function gettAllBeepers() {
     }
 }
 
-export async function getBeeperById(id: Number) {
+export async function getBeeperById(id: number): Promise<Beeper> {
     try {
-        const beepers = await  gettAllBeepers();
+        const beepers = await gettAllBeepers();
         const beeper = beepers.find((beeper: Beeper) => beeper.id === id);
+        if (!beeper) {
+            throw new Error(`Beeper with id ${id} not found`);
+        }
         return beeper;
     } catch (error) {
         throw error;
     }
 }
 
-export async function addBeeper(newBeeper: Beeper) {
+export async function addBeeper(newBeeper: Beeper): Promise<Beeper> {
     try {
         const beepers = await gettAllBeepers();
         beepers.push(newBeeper);
@@ -33,19 +36,29 @@ export async function addBeeper(newBeeper: Beeper) {
     }
 }
 
-export async function updateStatusOfbeeper(id: Number, status: string) {
+export async function updateStatusOfbeeper(id: number, status: string | undefined, latitude: number, longitude: number): Promise<Beeper> {
     try {
         const beepers = await gettAllBeepers();
         const beeper = beepers.find((beeper: Beeper) => beeper.id === id);
-        beeper.status = status;
-        await jsonFile.writeFile(dbFile, beepers);
+        if (!beeper) {
+            throw new Error(`Beeper with id ${id} not found`);
+        }
+        if (status !== undefined) {
+            beeper.status = status;
+            beeper.latitude = latitude;
+            beeper.longitude = longitude;
+            if (status === 'detonated') {
+                beeper.detonated_at = new Date();
+            }
+        }
+        await jsonFile.writeFile(dbFile, beepers, { spaces: 2 });
         return beeper;
     } catch (error) {
         throw error;
     }
 }
 
-export async function deleteBeeperFromDb(id: Number) {
+export async function deleteBeeperFromDb(id: Number): Promise<void> {
     try {
         const beepers = await gettAllBeepers();
         const index = beepers.findIndex((beeper: Beeper) => beeper.id === id);
@@ -56,7 +69,7 @@ export async function deleteBeeperFromDb(id: Number) {
     }
 }
 
-export async function getBeepersByStatus(status: string) {
+export async function getBeepersByStatus(status: string): Promise<Beeper[]> {
     try {
         const beepers = await gettAllBeepers();
         const filteredBeepers = beepers.filter((beeper: Beeper) => beeper.status === status);
@@ -64,17 +77,4 @@ export async function getBeepersByStatus(status: string) {
     } catch (error) {
         throw error;
     }
-}
-
-export function timer(id: Number) {
-    let countdown = 10;
-    
-    const timer = setInterval(() => {
-        if (countdown >= 0) {
-            countdown--;
-        } else {
-            clearInterval(timer);
-            updateStatusOfbeeper(id, 'detonated');
-        }
-    }, 1000);
 }

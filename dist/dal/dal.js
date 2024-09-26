@@ -18,7 +18,6 @@ exports.addBeeper = addBeeper;
 exports.updateStatusOfbeeper = updateStatusOfbeeper;
 exports.deleteBeeperFromDb = deleteBeeperFromDb;
 exports.getBeepersByStatus = getBeepersByStatus;
-exports.timer = timer;
 const jsonfile_1 = __importDefault(require("jsonfile"));
 const dbFile = './db.json';
 function gettAllBeepers() {
@@ -37,6 +36,9 @@ function getBeeperById(id) {
         try {
             const beepers = yield gettAllBeepers();
             const beeper = beepers.find((beeper) => beeper.id === id);
+            if (!beeper) {
+                throw new Error(`Beeper with id ${id} not found`);
+            }
             return beeper;
         }
         catch (error) {
@@ -57,13 +59,23 @@ function addBeeper(newBeeper) {
         }
     });
 }
-function updateStatusOfbeeper(id, status) {
+function updateStatusOfbeeper(id, status, latitude, longitude) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const beepers = yield gettAllBeepers();
             const beeper = beepers.find((beeper) => beeper.id === id);
-            beeper.status = status;
-            yield jsonfile_1.default.writeFile(dbFile, beepers);
+            if (!beeper) {
+                throw new Error(`Beeper with id ${id} not found`);
+            }
+            if (status !== undefined) {
+                beeper.status = status;
+                beeper.latitude = latitude;
+                beeper.longitude = longitude;
+                if (status === 'detonated') {
+                    beeper.detonated_at = new Date();
+                }
+            }
+            yield jsonfile_1.default.writeFile(dbFile, beepers, { spaces: 2 });
             return beeper;
         }
         catch (error) {
@@ -95,16 +107,4 @@ function getBeepersByStatus(status) {
             throw error;
         }
     });
-}
-function timer(id) {
-    let countdown = 10;
-    const timer = setInterval(() => {
-        if (countdown >= 0) {
-            countdown--;
-        }
-        else {
-            clearInterval(timer);
-            updateStatusOfbeeper(id, 'detonated');
-        }
-    }, 1000);
 }

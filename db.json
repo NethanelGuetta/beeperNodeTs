@@ -1,98 +1,148 @@
 [
-    {
-        "id": 11,
-        "name": "jhon",
-        "email": "neti@example.com",
-        "password": "$2b$10$ZNyuId1CJx0txa9OPTCiCuFxYfSXM8HQyzH.hS2Hki7.3qqC69ctq",
-        "books": [
-            {
-                "title": "herry potter"
-            }
-        ]
-    },
-    {
-        "name": "massa",
-        "email": "neti@example.com",
-        "password": "$2b$10$zL43v.VrxJgram17Iof0auCzXc1S2grH6QnbBNzCHpyUu3XtHZgtS"
-    },
-    {
-        "id": "039a234d-9cc9-4f20-9995-31bc88519dd7",
-        "name": "jhon",
-        "email": "neti@example.com",
-        "password": "$2b$10$x43adFJiLQis.z7gVYErU./BWIy.f9cudl0E8KaB2FwUXkyYfJgYW",
-        "books": [
-            {
-                "bookId": "e4de9f9b-1c9a-4b40-bbf9-bc73c4fcf149",
-                "title": "1984"
-            },
-            {
-                "bookId": "c1e55782-b447-44db-98bf-dc05b2557ff8",
-                "title": "reacher"
-            },
-            {
-                "bookId": "b587b85e-aad9-4aed-8b25-1331e71569f1",
-                "title": "reacher"
-            }
-        ]
-    },
-    {
-        "name": "massa",
-        "email": "neti@example.com",
-        "password": "$2b$10$zL43v.VrxJgram17Iof0auCzXc1S2grH6QnbBNzCHpyUu3XtHZgtS"
-    },
-    {
-        "id": "039a234d-9cc9-4f20-9995-31bc88519dd7",
-        "name": "jhon",
-        "email": "neti@example.com",
-        "password": "$2b$10$x43adFJiLQis.z7gVYErU./BWIy.f9cudl0E8KaB2FwUXkyYfJgYW",
-        "books": [
-            {
-                "bookId": "e4de9f9b-1c9a-4b40-bbf9-bc73c4fcf149",
-                "title": "1984"
-            },
-            {
-                "bookId": "c1e55782-b447-44db-98bf-dc05b2557ff8",
-                "title": "reacher"
-            },
-            {
-                "bookId": "b587b85e-aad9-4aed-8b25-1331e71569f1",
-                "title": "reacher"
-            }
-        ]
-    },
-    {
-        "id": 1727337937784,
-        "name": "primo",
-        "created_at": "2024-09-26T08:05:37.784Z",
-        "detonated_at": "2024-09-DDTHH:mm",
-        "longitude": "35.78674",
-        "latitude": "34.59708"
-    },
-    {
-        "id": 1727340699604,
-        "name": "primo",
-        "status": "manufactured",
-        "created_at": "2024-09-26T08:51:39.604Z",
-        "detonated_at": "2024-09-DDTHH:mm",
-        "longitude": "35.78674",
-        "latitude": "34.59708"
-    },
-    {
-        "id": 1727340702449,
-        "name": "primo",
-        "status": "manufactured",
-        "created_at": "2024-09-26T08:51:42.449Z",
-        "detonated_at": "2024-09-DDTHH:mm",
-        "longitude": "35.78674",
-        "latitude": "34.59708"
-    },
-    {
-        "id": 1727340712461,
-        "name": "secondo",
-        "status": "detonated",
-        "created_at": "2024-09-26T08:51:52.461Z",
-        "detonated_at": "2024-09-DDTHH:mm",
-        "longitude": "35.78674",
-        "latitude": "34.59708"
-    }
+  {
+    "id": 11,
+    "name": "jhon",
+    "email": "neti@example.com",
+    "password": "$2b$10$ZNyuId1CJx0txa9OPTCiCuFxYfSXM8HQyzH.hS2Hki7.3qqC69ctq",
+    "books": [
+      {
+        "title": "herry potter"
+      }
+    ]
+  },
+  {
+    "name": "massa",
+    "email": "neti@example.com",
+    "password": "$2b$10$zL43v.VrxJgram17Iof0auCzXc1S2grH6QnbBNzCHpyUu3XtHZgtS"
+  },
+  {
+    "id": "039a234d-9cc9-4f20-9995-31bc88519dd7",
+    "name": "jhon",
+    "email": "neti@example.com",
+    "password": "$2b$10$x43adFJiLQis.z7gVYErU./BWIy.f9cudl0E8KaB2FwUXkyYfJgYW",
+    "books": [
+      {
+        "bookId": "e4de9f9b-1c9a-4b40-bbf9-bc73c4fcf149",
+        "title": "1984"
+      },
+      {
+        "bookId": "c1e55782-b447-44db-98bf-dc05b2557ff8",
+        "title": "reacher"
+      },
+      {
+        "bookId": "b587b85e-aad9-4aed-8b25-1331e71569f1",
+        "title": "reacher"
+      }
+    ]
+  },
+  {
+    "name": "massa",
+    "email": "neti@example.com",
+    "password": "$2b$10$zL43v.VrxJgram17Iof0auCzXc1S2grH6QnbBNzCHpyUu3XtHZgtS"
+  },
+  {
+    "id": "039a234d-9cc9-4f20-9995-31bc88519dd7",
+    "name": "jhon",
+    "email": "neti@example.com",
+    "password": "$2b$10$x43adFJiLQis.z7gVYErU./BWIy.f9cudl0E8KaB2FwUXkyYfJgYW",
+    "books": [
+      {
+        "bookId": "e4de9f9b-1c9a-4b40-bbf9-bc73c4fcf149",
+        "title": "1984"
+      },
+      {
+        "bookId": "c1e55782-b447-44db-98bf-dc05b2557ff8",
+        "title": "reacher"
+      },
+      {
+        "bookId": "b587b85e-aad9-4aed-8b25-1331e71569f1",
+        "title": "reacher"
+      }
+    ]
+  },
+  {
+    "id": 1727337937784,
+    "name": "primo",
+    "created_at": "2024-09-26T08:05:37.784Z",
+    "detonated_at": "2024-09-DDTHH:mm",
+    "longitude": "35.78674",
+    "latitude": "34.59708"
+  },
+  {
+    "id": 1727340699604,
+    "name": "primo",
+    "status": "detonated",
+    "created_at": "2024-09-26T08:51:39.604Z",
+    "detonated_at": "2024-09-26T12:12:07.876Z",
+    "longitude": "35.78674",
+    "latitude": "34.59708"
+  },
+  {
+    "id": 1727340702449,
+    "name": "primo",
+    "status": "detonad",
+    "created_at": "2024-09-26T08:51:42.449Z",
+    "detonated_at": "2024-09-DDTHH:mm",
+    "longitude": "35.78674",
+    "latitude": "34.59708"
+  },
+  {
+    "id": 1727340712461,
+    "name": "secondo",
+    "status": "detonad",
+    "created_at": "2024-09-26T08:51:52.461Z",
+    "detonated_at": "2024-09-DDTHH:mm",
+    "longitude": "35.78674",
+    "latitude": "34.59708"
+  },
+  {
+    "id": 1727355030822,
+    "name": "terzo",
+    "status": "deployed",
+    "created_at": "2024-09-26T12:50:30.822Z"
+  },
+  {
+    "id": 1727355154442,
+    "name": "quarto",
+    "status": "detonated",
+    "created_at": "2024-09-26T12:52:34.442Z",
+    "detonated_at": "2024-09-26T12:54:40.523Z"
+  },
+  {
+    "id": 1727358949096,
+    "name": "quinto",
+    "status": "detonated",
+    "created_at": "2024-09-26T13:55:49.096Z",
+    "detonated_at": "2024-09-26T13:57:11.398Z"
+  },
+  {
+    "id": 1727359044220,
+    "name": "quinto",
+    "status": "detonated",
+    "created_at": "2024-09-26T13:57:24.220Z",
+    "detonated_at": "2024-09-26T13:58:36.656Z"
+  },
+  {
+    "id": 1727359577915,
+    "name": "quinto",
+    "status": "detonated",
+    "created_at": "2024-09-26T14:06:17.915Z",
+    "latitude": 35.38508,
+    "longitude": 34.34499,
+    "detonated_at": "2024-09-26T14:07:02.612Z"
+  },
+  {
+    "id": 1727359654738,
+    "name": "quinto",
+    "status": "deployed",
+    "created_at": "2024-09-26T14:07:34.738Z"
+  },
+  {
+    "id": 1727360499639,
+    "name": "quinto",
+    "status": "assembled",
+    "created_at": "2024-09-26T14:21:39.639Z",
+    "latitude": 20,
+    "longitude": 500
+  }
 ]
