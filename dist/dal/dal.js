@@ -13,6 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.gettAllBeepers = gettAllBeepers;
+exports.getBeeperById = getBeeperById;
+exports.addBeeper = addBeeper;
 const jsonfile_1 = __importDefault(require("jsonfile"));
 const dbFile = './db.json';
 function gettAllBeepers() {
@@ -20,6 +22,31 @@ function gettAllBeepers() {
         try {
             const beepers = yield jsonfile_1.default.readFile(dbFile);
             return beepers;
+        }
+        catch (error) {
+            throw error;
+        }
+    });
+}
+function getBeeperById(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const beepers = yield gettAllBeepers();
+            const beeper = beepers.find((beeper) => beeper.id === id);
+            return beeper;
+        }
+        catch (error) {
+            throw error;
+        }
+    });
+}
+function addBeeper(newBeeper) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const beepers = yield gettAllBeepers();
+            beepers.push(newBeeper);
+            yield jsonfile_1.default.writeFile(dbFile, beepers);
+            return newBeeper;
         }
         catch (error) {
             throw error;

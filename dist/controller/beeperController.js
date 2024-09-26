@@ -32,7 +32,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getBeepers = void 0;
+exports.addBeeperToDb = exports.getBeeperById = exports.getBeepers = void 0;
 const dbFunctions = __importStar(require("../dal/dal"));
 const getBeepers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -44,3 +44,33 @@ const getBeepers = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.getBeepers = getBeepers;
+const getBeeperById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const beeperId = +req.params.id;
+    try {
+        const beeper = yield dbFunctions.getBeeperById(beeperId);
+        res.status(200).json(beeper);
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Error getting beeper' });
+    }
+});
+exports.getBeeperById = getBeeperById;
+const addBeeperToDb = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const newBeeper = {
+        id: Date.now(),
+        name: req.body.name,
+        status: req.body.status,
+        created_at: new Date(),
+        detonated_at: req.body.detonated_at,
+        longitude: req.body.longitude,
+        latitude: req.body.latitude
+    };
+    try {
+        dbFunctions.addBeeper(newBeeper);
+        res.status(201).json(newBeeper);
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Error adding beeper' });
+    }
+});
+exports.addBeeperToDb = addBeeperToDb;

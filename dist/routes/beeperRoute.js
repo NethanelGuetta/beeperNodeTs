@@ -30,4 +30,6 @@ const express_1 = __importDefault(require("express"));
 const controllerFunctions = __importStar(require("../controller/beeperController"));
 const beeperRouter = express_1.default.Router();
 beeperRouter.get('/api/beepers', controllerFunctions.getBeepers);
+beeperRouter.get('/api/beepers/:id', controllerFunctions.getBeeperById);
+beeperRouter.post('/api/beepers', controllerFunctions.addBeeperToDb);
 exports.default = beeperRouter;
